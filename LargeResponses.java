@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.Scanner;
 
+/*
+Please enter the filename that is present in the same directory where this LargeResponses.java present to calculate the number of bytes
+*/
+
 public class LargeResponses {
 
     private static final String OUTPUT_FILE_PREFIX = "bytes_";
