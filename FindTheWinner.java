@@ -5,18 +5,27 @@ public class FindTheWinner {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        /*
+            Scanning Andrea elements
+         */
         int numberOfAndreaElements = scanner.nextInt();
         int[] andreaElements = new int[numberOfAndreaElements];
         for (int i = 0; i < numberOfAndreaElements; i++) {
             andreaElements[i] = scanner.nextInt();
         }
 
+        /*
+            Scanning Maria elements
+         */
         int numberOfMariaElements = scanner.nextInt();
         int[] mariaElements = new int[numberOfMariaElements];
         for (int i = 0; i < numberOfMariaElements; i++) {
             mariaElements[i] = scanner.nextInt();
         }
 
+        /*
+            Scanning game style either Even or Odd
+         */
         String gameStyle = scanner.next();
 
         findTheWinner(andreaElements, mariaElements, gameStyle);
