@@ -28,21 +28,23 @@ public class FindTheWinner {
          */
         String gameStyle = scanner.next();
 
-        findTheWinner(andreaElements, mariaElements, gameStyle);
+        String winner = winner(andreaElements, mariaElements, gameStyle);
+
+        System.out.println(winner);
     }
 
-    private static void findTheWinner(int[] andreaElements,
-                                      int[] mariaElements,
-                                      String gameStyle) {
-        String winner;
+    static String winner(int[] andreaElements,
+                         int[] mariaElements,
+                         String gameStyle) {
+
+        String winner = "";
         if (gameStyle.equalsIgnoreCase("Even")) {
-            winner = findTheWinnerInEvenGame(andreaElements, mariaElements);
-            System.out.print(winner);
+            return findTheWinnerInEvenGame(andreaElements, mariaElements);
         }
         if (gameStyle.equalsIgnoreCase("Odd")) {
-            winner = findTheWinnerInOddGame(andreaElements, mariaElements);
-            System.out.print(winner);
+            return findTheWinnerInOddGame(andreaElements, mariaElements);
         }
+        return winner;
     }
 
     private static String findTheWinnerInEvenGame(int[] andreaElements,
