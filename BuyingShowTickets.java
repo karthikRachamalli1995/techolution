@@ -25,14 +25,14 @@ public class BuyingShowTickets {
         /*
             total time for jessie to buy tickets all her desired number of tickets
          */
-        int waitingTime = waitingTime(memberTicketsCountArray, position);
+        long waitingTime = waitingTime(memberTicketsCountArray, position);
 
         System.out.println(waitingTime);
     }
 
-    private static int waitingTime(int[] memberTicketsCountArray, int jessiePosition) {
+    static long waitingTime(int[] memberTicketsCountArray, int jessiePosition) {
 
-        int waitingTimeForJessie = 0;
+        long waitingTimeForJessie = 0;
         int memberGoingToServed = 0;
 
         int lengthOfQueue = memberTicketsCountArray.length;
