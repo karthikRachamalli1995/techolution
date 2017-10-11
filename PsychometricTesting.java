@@ -35,7 +35,7 @@ public class PsychometricTesting {
             upperLimits[i] = scanner.nextInt();
         }
 
-        int[] result = numberOfScoresInclusiveOfLimits(scores, lowerLimits, upperLimits);
+        int[] result = jobOffers(scores, lowerLimits, upperLimits);
         /*
              Printing the array separated with spaces
          */
@@ -44,9 +44,9 @@ public class PsychometricTesting {
         }
     }
 
-    private static int[] numberOfScoresInclusiveOfLimits(int[] scores,
-                                                         int[] lowerLimits,
-                                                         int[] upperLimits) {
+    static int[] jobOffers(int[] scores,
+                           int[] lowerLimits,
+                           int[] upperLimits) {
         List<Integer> numberOfScoresInclusiveOfLimitsList = new ArrayList<>();
 
         /*
