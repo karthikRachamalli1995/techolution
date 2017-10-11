@@ -9,7 +9,7 @@ public class InTheFuture {
         int kellyProblemsPerDay = scanner.nextInt();
         int numberOfProblemsAshaAheadOfKelly = scanner.nextInt();
 
-        int minimumNumberOfDays = minimumNumberOfDaysThatKellyBeatsAsha(
+        int minimumNumberOfDays = minNum(
                 ashaProblemsPerDay,
                 kellyProblemsPerDay,
                 numberOfProblemsAshaAheadOfKelly
@@ -17,9 +17,9 @@ public class InTheFuture {
         System.out.print(minimumNumberOfDays);
     }
 
-    private static int minimumNumberOfDaysThatKellyBeatsAsha(int ashaProblemsPerDay,
-                                                             int kellyProblemsPerDay,
-                                                             int numberOfProblemsAshaAheadOfKelly) {
+    private static int minNum(int ashaProblemsPerDay,
+                              int kellyProblemsPerDay,
+                              int numberOfProblemsAshaAheadOfKelly) {
         /*
             Checking the conditions if the conditions doesn't meet return -1
          */
