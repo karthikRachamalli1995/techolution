@@ -17,9 +17,9 @@ public class InTheFuture {
         System.out.print(minimumNumberOfDays);
     }
 
-    private static int minNum(int ashaProblemsPerDay,
-                              int kellyProblemsPerDay,
-                              int numberOfProblemsAshaAheadOfKelly) {
+    static int minNum(int ashaProblemsPerDay,
+                      int kellyProblemsPerDay,
+                      int numberOfProblemsAshaAheadOfKelly) {
         /*
             Checking the conditions if the conditions doesn't meet return -1
          */
