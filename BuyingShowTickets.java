@@ -31,35 +31,48 @@ public class BuyingShowTickets {
     }
 
     static long waitingTime(int[] memberTicketsCountArray, int jessiePosition) {
-
         long waitingTimeForJessie = 0;
-        int memberGoingToServed = 0;
-
-        int lengthOfQueue = memberTicketsCountArray.length;
+        int memberToBeServed = 0;
         /*
-            validating jessiePosition by checking whether it is more than size of the members in the queue
+            initialise the differenceTicketsCounterArray with respect to jessie tickets so that we can reduce the number
+            of comparisons
          */
-        if (lengthOfQueue > jessiePosition) {
+        int[] differenceTicketsCounterArray = new int[memberTicketsCountArray.length];
+        int i = 0;
+        while (i < memberTicketsCountArray.length) {
+            differenceTicketsCounterArray[i] = memberTicketsCountArray[i] - memberTicketsCountArray[jessiePosition];
+            i++;
+        }
+
+        while (memberToBeServed < memberTicketsCountArray.length) {
             /*
-                Iterate up to jessie buys all her needed tickets i.e., memberTicketsCountArray[jessiePosition] != 0
+                If the difference between the number of tickets of a member to be served is less than tickets of jessie,
+                then obviously jessie will wait until those tickets are served.
              */
-            while (memberTicketsCountArray[jessiePosition] != 0) {
-
+            if (differenceTicketsCounterArray[memberToBeServed] < 0) {
+                waitingTimeForJessie += memberTicketsCountArray[memberToBeServed];
+            } else {
                 /*
-                    If the counter reaches end of the queue initialise to "0", so that again serves from start
+                    If the difference between the number of tickets of a member to be served is greater than tickets of jessie,
+                    then we will see two cases
+                    1) member to be served is ahead of jessie in queue
+                    2) member to be served is before of jessie in queue
                  */
-                if (memberGoingToServed == lengthOfQueue) {
-                    memberGoingToServed = 0;
-                }
-
-                if (memberTicketsCountArray[memberGoingToServed] != 0) {
-                    memberTicketsCountArray[memberGoingToServed] = memberTicketsCountArray[memberGoingToServed] - 1;
-                    memberGoingToServed++;
-                    waitingTimeForJessie++;
+                if (memberToBeServed > jessiePosition) {
+                   /*
+                        if member to be served is ahead of jessie in queue then simply we will serve the jessie
+                        by one ticket and continue the serving process
+                    */
+                    waitingTimeForJessie += memberTicketsCountArray[jessiePosition] - 1;
                 } else {
-                    memberGoingToServed++;
+                   /*
+                        if member to be served is before of jessie in queue then waiting time will incremented with
+                        the tickets needed by jessie it self
+                    */
+                    waitingTimeForJessie += memberTicketsCountArray[jessiePosition];
                 }
             }
+            memberToBeServed++;
         }
         return waitingTimeForJessie;
     }
