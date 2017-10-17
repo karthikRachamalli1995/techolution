@@ -11,7 +11,7 @@ public class TwoCircles {
 
         int testCases = scanner.nextInt();
 
-        scanner.nextLine();
+	scanner.nextLine();
 
         String[] info = new String[testCases];
         for (int i = 0; i < testCases; i++) {
@@ -41,6 +41,10 @@ public class TwoCircles {
             double radiusSum = radiusSum(r0, r1);
             double radiusSub = radiusSub(r0, r1);
 
+	    /*
+		The relation is Touching, if distance between two centers is equal to sum of two circles radius
+		and if distance between two centers is equal to difference of two circles radius
+	    */
             if (distance == radiusSum || distance == radiusSub) {
                 relations[i] = "Touching";
                 continue;
@@ -51,11 +55,6 @@ public class TwoCircles {
                 continue;
             }
 
-            if (distance < radiusSum) {
-                relations[i] = "Intersecting";
-                continue;
-            }
-
             if (distance > radiusSum) {
                 relations[i] = "Disjoint-Outside";
                 continue;
@@ -63,6 +62,12 @@ public class TwoCircles {
 
             if (distance < radiusSub) {
                 relations[i] = "Disjoint-Inside";
+		continue;
+            }
+
+	    if (distance < radiusSum) {
+                relations[i] = "Intersecting";
+                continue;
             }
         }
         return relations;
