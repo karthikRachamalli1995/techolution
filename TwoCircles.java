@@ -43,7 +43,7 @@ public class TwoCircles {
 
 	    /*
 		The relation is Touching, if distance between two centers is equal to sum of two circles radius
-		and if distance between two centers is equal to difference of two circles radius
+		or if distance between two centers is equal to difference of two circles radius
 	    */
             if (distance == radiusSum || distance == radiusSub) {
                 relations[i] = "Touching";
