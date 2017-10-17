@@ -51,7 +51,7 @@ public class FindTheWinner {
                                                   int[] mariaElements) {
         int andreaScore = 0;
         int mariaScore = 0;
-        for (int index = 0; index <= andreaElements.length; index = index + 2) {
+        for (int index = 0; index < andreaElements.length; index = index + 2) {
             andreaScore += (andreaElements[index] - mariaElements[index]);
             mariaScore += (mariaElements[index] - andreaElements[index]);
         }
